@@ -1,0 +1,105 @@
+<project name="My Custom Ant Project setup" default="main" basedir=".">
+	<description>
+		Create a Java Project (JAR) with Ant build script
+	</description>
+
+
+
+	<!-- set global properties for this build -->
+	<property name="projectName" value="JUnitTest" />
+
+	<!-- Java sources -->
+	<property name="src.dir" location="src" />
+
+	<!-- Java classes -->
+	<property name="build.dir" location="bin" />
+
+	<!-- Output, Jar -->
+	<property name="dist.dir" location="dist" />
+
+	<property name="lib.dir" location="lib" />
+	<property name="reports.dir" location="reports" />
+	<property name="test.classes.dir" location="${build.dir}/com/thomas/utils" />
+
+	<!-- the names of various distributable files -->
+	<property name="jar_name" value="${projectName}.jar" />
+
+
+	
+	<!-- top level targets -->
+    <taskdef name="testng" classname="org.testng.TestNGAntTask">
+		<classpath>
+			<pathelement location="lib/testng-6.8.jar" />
+		</classpath>
+	</taskdef>
+	
+
+
+	<!-- Put all jar files needed here, like JUnit.jar -->
+	<path id="3rd-party-classpath">
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<!--  below is a way to build reusable class paths for here, we have lib for jara and bin for the location of classes -->
+	<path id="buildpath">
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+		<pathelement location="${build.dir}" />
+	</path>
+	
+
+
+	<target name="clean" description="clean up">
+		<echo>========== clean project ==========</echo>
+		<delete dir="${build.dir}" />
+		<delete dir="${dist.dir}" />
+		<delete dir="${reports.dir}" />
+		<delete dir="${reports.dir}/raw/" />
+	</target>
+
+	<target name="init" depends="clean" description="initialize the build environment">
+		<echo>========== init project ==========</echo>
+		<!-- Create the time stamp -->
+		<tstamp />
+		<!-- Create the build directory structure used by compile -->
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${dist.dir}" />
+		<mkdir dir="${reports.dir}" />
+		<mkdir dir="${reports.dir}/raw/" />
+	</target>
+
+	<target name="compile" depends="init" description="compile the source ">
+		<echo>========== Compile ALL Java codes from ${src.dir} into ${build.dir} ==========</echo>
+		<javac includeantruntime="false" srcdir="${src.dir}" destdir="${build.dir}">
+			<classpath refid="3rd-party-classpath" />
+		</javac>
+	</target>
+
+	<target name="run" depends="compile">
+		<echo>========== Running Java program: com.thomas.utils.JUnitTest ==========</echo>
+		<java classname="com.thomas.utils.JUnitTest">
+			<classpath>
+				<pathelement location="${build.dir}" />
+				<path refid="3rd-party-classpath" />
+			</classpath>
+		</java>
+	</target>
+
+	<target name="run-testng" depends="compile" description="run your testNG suite" >
+		<echo>========== Testing using testng ==========</echo>
+		<testng classpathref="buildpath" outputDir="${reports.dir}" haltOnfailure="no">
+   			<xmlfileset dir="${src.dir}" includes="testng.xml" />
+		</testng>
+	</target>
+
+
+
+
+	<target name="test" depends="" description="run 'ant test' to check if this can run" />
+	
+	<!-- Default: run this(this is defined on top) -->
+	<target name="main" depends="clean, compile, run-testng" />
+</project>

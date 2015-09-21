@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="5" passed="5">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="142" started-at="2015-09-21T04:58:06Z" finished-at="2015-09-21T04:58:07Z">
+    <groups>
+      <group name="group2">
+        <method signature="TestNGTest.test21()[pri:0, instance:com.thomas.utils.TestNGTest@270421f5]" name="test21" class="com.thomas.utils.TestNGTest"/>
+        <method signature="TestNGTest.test22()[pri:0, instance:com.thomas.utils.TestNGTest@270421f5]" name="test22" class="com.thomas.utils.TestNGTest"/>
+      </group> <!-- group2 -->
+      <group name="group1">
+        <method signature="TestNGTest.test11()[pri:0, instance:com.thomas.utils.TestNGTest@270421f5]" name="test11" class="com.thomas.utils.TestNGTest"/>
+        <method signature="TestNGTest.test12()[pri:0, instance:com.thomas.utils.TestNGTest@270421f5]" name="test12" class="com.thomas.utils.TestNGTest"/>
+      </group> <!-- group1 -->
+    </groups>
+    <test name="Default test" duration-ms="142" started-at="2015-09-21T04:58:06Z" finished-at="2015-09-21T04:58:07Z">
+      <class name="com.thomas.utils.TestNGTest">
+        <test-method status="PASS" signature="beforeGroups()[pri:0, instance:com.thomas.utils.TestNGTest@270421f5]" name="beforeGroups" is-config="true" duration-ms="31" started-at="2015-09-20T21:58:06Z" finished-at="2015-09-20T21:58:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeGroups -->
+        <test-method status="PASS" signature="test11()[pri:0, instance:com.thomas.utils.TestNGTest@270421f5]" name="test11" duration-ms="29" started-at="2015-09-20T21:58:06Z" finished-at="2015-09-20T21:58:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test11 -->
+        <test-method status="PASS" signature="test12()[pri:0, instance:com.thomas.utils.TestNGTest@270421f5]" name="test12" duration-ms="2" started-at="2015-09-20T21:58:06Z" finished-at="2015-09-20T21:58:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test12 -->
+        <test-method status="PASS" signature="afterGroups()[pri:0, instance:com.thomas.utils.TestNGTest@270421f5]" name="afterGroups" is-config="true" duration-ms="2" started-at="2015-09-20T21:58:06Z" finished-at="2015-09-20T21:58:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterGroups -->
+        <test-method status="PASS" signature="test21()[pri:0, instance:com.thomas.utils.TestNGTest@270421f5]" name="test21" duration-ms="4" started-at="2015-09-20T21:58:06Z" finished-at="2015-09-20T21:58:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test21 -->
+        <test-method status="PASS" signature="test22()[pri:0, instance:com.thomas.utils.TestNGTest@270421f5]" name="test22" duration-ms="2" started-at="2015-09-20T21:58:06Z" finished-at="2015-09-20T21:58:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test22 -->
+        <test-method status="PASS" signature="runFinal()[pri:0, instance:com.thomas.utils.TestNGTest@270421f5]" name="runFinal" duration-ms="6" depends-on-groups="group2, group1" started-at="2015-09-20T21:58:06Z" finished-at="2015-09-20T21:58:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runFinal -->
+      </class> <!-- com.thomas.utils.TestNGTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
