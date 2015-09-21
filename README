@@ -1,0 +1,45 @@
+
+                          Selenium & Java using Ant build
+
+  What is it?
+  -----------
+  This is a demo of Selenium & Java using Ant build. The main goal is
+  to demonstrate how to setup "build.xml", Ant Default build file for JUnit,
+  TestNG, and Selenium. Therefore, there are 2 build.xml files in this project  .
+
+
+  The Latest Version
+  ------------------
+  https://github.com/yes4me?tab=repositories
+  Started on: Sep 13, 2015
+
+
+  Documentation
+  -------------
+  Open a Command Prompt window, go to the root of the project and:
+   - to start Ant: ant
+   - use a different build.xml file: ant -f <filename>.xml
+   - to get some feedback: ant -v <filename>.xml
+   - to get more feedback: ant -debug <filename>.xml
+   - to get help commands: ant -h
+
+
+  Installation
+  ------------
+  Download and install Ant from http://ant.apache.org/
+  Add ANT_HOME as the Windows environment variable:
+	click the Start button
+	right-click the Computer option in the Start menu > select Properties
+	click on Advanced System Settings > environment variable
+	Add System variables to System variable:
+		Variable: ANT_HOME
+		Value: address where the folder is located
+	Update PATH of System variable:
+		Add Path: %ANT_HOME%\bin
+  reboot
+  To check if Ant has been correctly installed, run from the prompt: ant -v
+
+
+  Contacts
+  --------
+  Author:	Thomas Nguyen - thomas_ejob@hotmail.com
