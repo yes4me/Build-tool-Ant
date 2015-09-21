@@ -44,9 +44,11 @@
 
 	<!--  below is a way to build reusable class paths for here, we have lib for jara and bin for the location of classes -->
 	<path id="buildpath">
+		<!--  fileset = look inside the jar file -->
 		<fileset dir="${lib.dir}">
 			<include name="**/*.jar" />
 		</fileset>
+		<!--  pathelement = look just at the file -->
 		<pathelement location="${build.dir}" />
 	</path>
 	
