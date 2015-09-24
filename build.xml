@@ -1,3 +1,9 @@
+<!--
+Created:	2015/09/19
+Author:		Thomas Nguyen - thomas_ejob@hotmail.com
+Purpose:	This file is an ANT build script. ANT is a Java based build tool
+-->
+
 <project name="My Custom Ant Project setup" default="main" basedir=".">
 	<description>
 		Create a Java Project (JAR) with Ant build script
@@ -40,8 +46,34 @@
 		<pathelement location="${build.dir}" />
 	</path>
 	
+	<!-- ================================================================= -->
+	<!-- Default target                                                    -->
+	<!-- ================================================================= -->
 
-
+	<target name="usage">
+		<echo>
+			These are the targets supported by this ANT build script:
+	
+			default - clean, compile, distribution
+	
+			clean		- delete all non source directories
+			init		- create all directories needed for running the codes
+			compile		- compile the code
+			run			- run the code as a Java Application 
+			run-junit	- run all codes as a JUnit test 
+			
+			distribution - create jar file
+			run-tests	- distribution, run-junit  
+			report		- create the xml reports files
+			
+			test		- test if this script works
+		</echo>
+	</target>
+	
+	<!-- ================================================================= -->
+	<!-- Basic                                                             -->
+	<!-- ================================================================= -->
+	
 	<target name="clean" description="clean up">
 		<echo>========== clean project ==========</echo>
 		<delete dir="${build.dir}" />
@@ -92,7 +124,9 @@
 		</junit>
 	</target>
 
-
+	<!-- ================================================================= -->
+	<!-- Others                                                            -->
+	<!-- ================================================================= -->
 
 	<target name="distribution" depends="compile" description="package, output to JAR">
 		<!-- Put everything in ${build.dir} into the {$projectName}-${DSTAMP}.jar file -->
@@ -104,7 +138,7 @@
 		</jar>
 	</target>
 
-	<!-- One way: Add junit-4.12.jar to the directory of Ant/Lib -->
+	<!-- One way: Add junit-4.12.jar to the directory of /raw/ -->
 	<target name="run-tests" depends="distribution" description="run your test suite">
 		<junit printsummary="yes" haltonfailure="no" showoutput="yes">
 			<classpath refid="3rd-party-classpath" />
@@ -125,8 +159,6 @@
 			<report format="frames" todir="${reports.dir}/html/" />
 		</junitreport>
 	</target>
-
-
 
 	<target name="test" depends="" description="run 'ant test' to check if this can run" />
 	
